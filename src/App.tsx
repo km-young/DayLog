@@ -9,7 +9,7 @@ import {
   useRecoilState,
   useRecoilValue,
 } from 'recoil';
-// import { theme } from 'styles/theme';
+
 const App = () => {
   const queryClient = new QueryClient();
   return (
