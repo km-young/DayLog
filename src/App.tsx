@@ -6,10 +6,11 @@ import GlobalStyle from '../src/styles/GlobalStyle';
 const App = () => {
   const queryClient = new QueryClient();
   return (
+    /*연동 확인 테스트용 주석 */
     <QueryClientProvider client={queryClient}>
       {/* <ThemeProvider> */}
-        <GlobalStyle />
-        <Router />
+      <GlobalStyle />
+      <Router />
       {/* </ThemeProvider> */}
     </QueryClientProvider>
   );
