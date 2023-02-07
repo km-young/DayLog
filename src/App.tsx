@@ -8,8 +8,8 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       {/* <ThemeProvider> */}
-        <GlobalStyle />
-        <Router />
+      <GlobalStyle />
+      <Router />
       {/* </ThemeProvider> */}
     </QueryClientProvider>
   );
