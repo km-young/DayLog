@@ -23,15 +23,14 @@ const SignIn = () => {
           <InputContainer>
             <ItemContainer>
               <InputBox type="email" placeholder="이메일" />
-              <AiFillCloseCircle className="close-icon" />
+              <CloseIcon />
             </ItemContainer>
             <ItemContainer>
               <InputBox
                 type={isViewIconClick ? 'text' : 'password'}
                 placeholder="비밀번호"
               />
-              <AiFillEye
-                className="view-icon"
+              <ViewIcon
                 onClick={handleClickViewIcon}
                 style={{ color: isViewIconClick ? 'black' : '#ddd' }}
               />
@@ -44,8 +43,8 @@ const SignIn = () => {
         </FormTag>
         <PTag>SNS 로그인</PTag>
         <SocialLoginButtonContainer>
-          <FcGoogle className="social-login-icons" />
-          <AiFillGithub className="social-login-icons" />
+          <GoogleIcon />
+          <GitIcon />
         </SocialLoginButtonContainer>
         <MoveSignUpButton onClick={() => navigate('/signup')}>
           아직 회원이 아니신가요?
@@ -91,28 +90,6 @@ const InputContainer = styled.div`
 
 const ItemContainer = styled.div`
   position: relative;
-  .close-icon {
-    position: absolute;
-    bottom: 7px;
-    right: 20px;
-    font-size: 26px;
-    color: #ddd;
-    cursor: pointer;
-  }
-  .close-icon:hover {
-    color: #d1d1d1;
-  }
-  .view-icon {
-    position: absolute;
-    bottom: 5px;
-    right: 18px;
-    font-size: 30px;
-    color: #ddd;
-    cursor: pointer;
-  }
-  .view-icon:hover {
-    color: #d1d1d1;
-  }
 `;
 
 const InputBox = styled.input`
@@ -171,11 +148,6 @@ const SocialLoginButtonContainer = styled.div`
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
-
-  .social-login-icons {
-    font-size: 4rem;
-    cursor: pointer;
-  }
 `;
 
 const MoveSignUpButton = styled.button`
@@ -188,4 +160,39 @@ const MoveSignUpButton = styled.button`
   &:hover {
     color: blue;
   }
+`;
+
+// ICON
+const CloseIcon = styled(AiFillCloseCircle)`
+  position: absolute;
+  bottom: 7px;
+  right: 20px;
+  font-size: 26px;
+  color: #ddd;
+  cursor: pointer;
+  &:hover {
+    color: #d1d1d1;
+  }
+`;
+
+const ViewIcon = styled(AiFillEye)`
+  position: absolute;
+  bottom: 5px;
+  right: 18px;
+  font-size: 30px;
+  color: #ddd;
+  cursor: pointer;
+  &:hover {
+    color: #d1d1d1;
+  }
+`;
+
+const GoogleIcon = styled(FcGoogle)`
+  font-size: 4rem;
+  cursor: pointer;
+`;
+
+const GitIcon = styled(AiFillGithub)`
+  font-size: 4rem;
+  cursor: pointer;
 `;
