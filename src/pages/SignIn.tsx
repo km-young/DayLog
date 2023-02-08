@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { AiFillCloseCircle, AiFillEye, AiFillGithub } from 'react-icons/ai';
 import {FcGoogle} from 'react-icons/fc'
+import { useNavigate } from 'react-router';
 
 const SignIn = () => {
+  const navigate = useNavigate();
 
   // 비밀번호 눈알 아이콘 클릭 시 type 변경 할 수 있는 함수
   const [isViewIconClick, setIsViewIconClick] = useState(false);
@@ -17,26 +19,37 @@ const SignIn = () => {
           <InfoText>당신 곁의 개인 비서</InfoText>
           <InfoText>Daylog</InfoText>
         </InfoBox>
-        <InputContainer>
-          <ItemContainer>
-            <InputBox type="text" />
-            <AiFillCloseCircle className="close-icon" />
-          </ItemContainer>
-          <ItemContainer>
-            <InputBox type={isViewIconClick ? 'text':'password'} />
-            <AiFillEye className="view-icon" onClick={handleClickViewIcon} style={{color: isViewIconClick ? 'black' : '#ddd'}} />
-          </ItemContainer>
-          <PwLossButtonContainer>
-            <PwLossButton>비밀번호를 잊으셨나요?</PwLossButton>
-          </PwLossButtonContainer>
-        </InputContainer>
-        <LoginButton>계속하기</LoginButton>
+        <FormTag>
+          <InputContainer>
+            <ItemContainer>
+              <InputBox type="email" placeholder="이메일" />
+              <AiFillCloseCircle className="close-icon" />
+            </ItemContainer>
+            <ItemContainer>
+              <InputBox
+                type={isViewIconClick ? 'text' : 'password'}
+                placeholder="비밀번호"
+              />
+              <AiFillEye
+                className="view-icon"
+                onClick={handleClickViewIcon}
+                style={{ color: isViewIconClick ? 'black' : '#ddd' }}
+              />
+            </ItemContainer>
+            <PwLossButtonContainer>
+              <PwLossButton>비밀번호를 잊으셨나요?</PwLossButton>
+            </PwLossButtonContainer>
+          </InputContainer>
+          <LoginButton>계속하기</LoginButton>
+        </FormTag>
         <PTag>SNS 로그인</PTag>
         <SocialLoginButtonContainer>
           <FcGoogle className="social-login-icons" />
           <AiFillGithub className="social-login-icons" />
         </SocialLoginButtonContainer>
-        <JoinButton>아직 회원이 아니신가요?</JoinButton>
+        <MoveSignUpButton onClick={() => navigate('/signup')}>
+          아직 회원이 아니신가요?
+        </MoveSignUpButton>
       </Container>
     </>
   );
@@ -44,7 +57,7 @@ const SignIn = () => {
 
 export default SignIn
 
-;
+const FormTag = styled.form``;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -110,6 +123,9 @@ const InputBox = styled.input`
   background-color: #fafafa;
   border: 1.3px solid #ddd;
   border-radius: 8px;
+  &::placeholder{
+    color: #d1d1d1;
+  }
 `;
 
 const PwLossButton = styled.button`
@@ -162,7 +178,7 @@ const SocialLoginButtonContainer = styled.div`
   }
 `;
 
-const JoinButton = styled.button`
+const MoveSignUpButton = styled.button`
   border: none;
   background-color: white;
   color: #bbbbbb;
