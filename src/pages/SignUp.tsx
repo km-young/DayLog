@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { AiFillCloseCircle, AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
@@ -6,7 +6,6 @@ import { LoginForm } from '../types';
 import { useNavigate } from 'react-router';
 const SignUp = () => {
   const navigate = useNavigate();
-
 
   // 비밀번호 눈알 아이콘 클릭 시 type 변경 할 수 있는 함수
   // 비밀번호 , 비밀번호체크랑 따로 구현했습니다.
@@ -29,15 +28,15 @@ const SignUp = () => {
           <InputContainer>
             <ItemContainer>
               <InputBox type="email" placeholder="이메일" />
-              <AiFillCloseCircle className="close-icon" />
+              {/* <AiFillCloseCircle className="close-icon" /> */}
+              <CloseIcon />
             </ItemContainer>
             <ItemContainer>
               <InputBox
                 type={isViewPW ? 'text' : 'password'}
                 placeholder="비밀번호"
               />
-              <AiFillEye
-                className="view-icon"
+              <ViewIcon
                 onClick={handleClickViewPW}
                 style={{ color: isViewPW ? 'black' : '#ddd' }}
               />
@@ -47,8 +46,7 @@ const SignUp = () => {
                 type={isViewCheckPW ? 'text' : 'password'}
                 placeholder="비밀번호 확인"
               />
-              <AiFillEye
-                className="view-icon"
+              <ViewIcon
                 onClick={handleClickCheckPW}
                 style={{ color: isViewCheckPW ? 'black' : '#ddd' }}
               />
@@ -58,8 +56,8 @@ const SignUp = () => {
         </FormTag>
         <PTag>SNS 회원가입</PTag>
         <SocialLoginButtonContainer>
-          <FcGoogle className="social-login-icons" />
-          <AiFillGithub className="social-login-icons" />
+          <GoogleIcon />
+          <GitIcon />
         </SocialLoginButtonContainer>
         <MoveSignInButton onClick={() => navigate('/signin')}>
           이미 회원이신가요?
@@ -67,13 +65,11 @@ const SignUp = () => {
       </Container>
     </>
   );
-}
+};
 
-export default SignUp
+export default SignUp;
 
-const FormTag = styled.form`
-  
-`
+const FormTag = styled.form``;
 
 const Container = styled.div`
   display: flex;
@@ -108,28 +104,6 @@ const InputContainer = styled.div`
 
 const ItemContainer = styled.div`
   position: relative;
-  .close-icon {
-    position: absolute;
-    bottom: 7px;
-    right: 20px;
-    font-size: 26px;
-    color: #ddd;
-    cursor: pointer;
-  }
-  .close-icon:hover {
-    color: #d1d1d1;
-  }
-  .view-icon {
-    position: absolute;
-    bottom: 5px;
-    right: 18px;
-    font-size: 30px;
-    color: #ddd;
-    cursor: pointer;
-  }
-  .view-icon:hover {
-    color: #d1d1d1;
-  }
 `;
 
 const InputBox = styled.input`
@@ -143,23 +117,6 @@ const InputBox = styled.input`
   &::placeholder {
     color: #d1d1d1;
   }
-`;
-
-const PwLossButton = styled.button`
-  border: none;
-  background-color: white;
-  color: #bbbbbb;
-  padding: 0;
-  cursor: pointer;
-  &:hover {
-    color: blue;
-  }
-`;
-
-const PwLossButtonContainer = styled.div`
-  display: flex;
-  justify-content: left;
-  width: 23.5rem;
 `;
 
 const JoinButton = styled.button`
@@ -188,12 +145,8 @@ const SocialLoginButtonContainer = styled.div`
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
-
-  .social-login-icons {
-    font-size: 4rem;
-    cursor: pointer;
-  }
 `;
+
 
 const MoveSignInButton = styled.button`
   border: none;
@@ -205,4 +158,39 @@ const MoveSignInButton = styled.button`
   &:hover {
     color: blue;
   }
+`;
+
+// ICON
+const CloseIcon = styled(AiFillCloseCircle)`
+  position: absolute;
+  bottom: 7px;
+  right: 20px;
+  font-size: 26px;
+  color: #ddd;
+  cursor: pointer;
+  &:hover {
+    color: #d1d1d1;
+  }
+`;
+
+const ViewIcon = styled(AiFillEye)`
+  position: absolute;
+  bottom: 5px;
+  right: 18px;
+  font-size: 30px;
+  color: #ddd;
+  cursor: pointer;
+  &:hover {
+    color: #d1d1d1;
+  }
+`;
+
+const GoogleIcon = styled(FcGoogle)`
+  font-size: 4rem;
+  cursor: pointer;
+`;
+
+const GitIcon = styled(AiFillGithub)`
+  font-size: 4rem;
+  cursor: pointer;
 `;
