@@ -14,7 +14,7 @@ const App = () => {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
-      {/* <ThemeProvider> */}
+
       <RecoilRoot>
         <GlobalStyle />
         <Router />
