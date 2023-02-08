@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import { useState } from 'react';
+import styled from 'styled-components';
 import { AiFillCloseCircle, AiFillEye, AiFillGithub } from 'react-icons/ai';
-import {FcGoogle} from 'react-icons/fc'
+import { FcGoogle } from 'react-icons/fc';
 import { useNavigate } from 'react-router';
 
 const SignIn = () => {
@@ -52,11 +52,13 @@ const SignIn = () => {
       </Container>
     </>
   );
-}
+};
 
-export default SignIn
+export default SignIn;
 
-const FormTag = styled.form``;
+const FormTag = styled.form`
+  width: 100%;
+`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -65,7 +67,7 @@ const Container = styled.div`
   height: 100vh;
   width: 25.7rem;
   margin: 0 auto;
-`
+`;
 
 const InfoBox = styled.div`
   width: 100%;
@@ -86,21 +88,21 @@ const InputContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   margin: 6.2rem 0 0 0;
-`
+`;
 
 const ItemContainer = styled.div`
   position: relative;
 `;
 
 const InputBox = styled.input`
-  width: 21.5rem;
+  width: 100%;
   height: 2.4rem;
   padding: 0 3rem 0 1rem;
   font-size: 1rem;
   background-color: #fafafa;
   border: 1.3px solid #ddd;
   border-radius: 8px;
-  &::placeholder{
+  &::placeholder {
     color: #d1d1d1;
   }
 `;
@@ -111,7 +113,7 @@ const PwLossButton = styled.button`
   color: #bbbbbb;
   padding: 0;
   cursor: pointer;
-  &:hover{
+  &:hover {
     color: blue;
   }
 `;
@@ -120,7 +122,7 @@ const PwLossButtonContainer = styled.div`
   display: flex;
   justify-content: left;
   width: 23.5rem;
-`
+`;
 
 const LoginButton = styled.button`
   width: 100%;

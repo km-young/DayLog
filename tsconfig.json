@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "src/Firebase.tsx"  ]
+, "src/firebase/Firebase.tsx"  ]
 }

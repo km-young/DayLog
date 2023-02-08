@@ -1,26 +1,25 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import Router from '../src/router/Router';
-import { ThemeProvider } from 'styled-components';
-import GlobalStyle from '../src/styles/GlobalStyle';
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
+import Router from './router/Router';
+import GlobalStyle from './styles/GlobalStyle';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+// import { ThemeProvider } from 'styled-components';
+// import { isDarkAtom } from './atom';
+// import { useRecoilValue } from 'recoil';
+// import { darkTheme, lightTheme } from './theme';
 
 const App = () => {
-  const queryClient = new QueryClient();
+  /**Recoil적용을 위해 임시적으로 다크모드 생성 후 주석 처리 합니다
+   * 삭제는 말아주세요
+   * ReactQueryDevtools는 react query통신 여부 확인을 위한 라이브러리 입니다
+   */
+  // const isDark = useRecoilValue(isDarkAtom);
   return (
-    <QueryClientProvider client={queryClient}>
-
-      <RecoilRoot>
-        <GlobalStyle />
-        <Router />
-      </RecoilRoot>
+    <>
+      {/* <ThemeProvider theme={isDark ? darkTheme : lightTheme}> */}
+      <GlobalStyle />
+      <Router />
+      <ReactQueryDevtools initialIsOpen={true} />
       {/* </ThemeProvider> */}
-    </QueryClientProvider>
+    </>
   );
 };
 export default App;
