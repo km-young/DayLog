@@ -17,7 +17,7 @@ import { auth } from '../Firebase';
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [err, setErr] = useState(false);
+  const [err, setErr] = useState('');
   // 비밀번호 눈알 아이콘 클릭 시 type 변경 할 수 있는 함수
   // 비밀번호 , 비밀번호체크랑 따로 구현했습니다.
   const [isViewPW, setIsViewPW] = useState(false);
@@ -82,13 +82,17 @@ const SignUp = () => {
       await createUserWithEmailAndPassword(auth, email, pw)
         .then((userCredential) => {
           console.log('회원가입 성공');
-          navigate('/home');
+          
+          setEmail('');
+          setPw('');
+          setCheckPw('');
+          setErr('');
         })
         .catch((error) => {
           const errorMessage = error.message;
 
           if (errorMessage.includes('auth/email-already-in-use')) {
-            setErr(true);
+            setErr('이미 가입된 회원입니다.');
             return;
           }
         });
@@ -112,7 +116,7 @@ const SignUp = () => {
         if (
           errorMessage.includes('auth/account-exists-with-different-credential')
         ) {
-          setErr(true);
+          setErr('이미 가입된 회원입니다.');
           return;
         }
       });
@@ -131,7 +135,7 @@ const SignUp = () => {
         if (
           errorMessage.includes('auth/account-exists-with-different-credential')
         ) {
-          setErr(true);
+          setErr('이미 가입된 회원입니다.');
           return;
         }
       });
@@ -211,7 +215,7 @@ const SignUp = () => {
               {errors.checkPw && errors.checkPw.type === 'oneOf' && (
                 <ErrorMSG>비밀번호가 일치하지 않습니다.</ErrorMSG>
               )}
-              {err && <ErrorMSG>이미 가입된 회원입니다.</ErrorMSG>}
+              {err && <ErrorMSG>{err}</ErrorMSG>}
             </ItemContainer>
           </InputContainer>
           <JoinButton>등록하기</JoinButton>
