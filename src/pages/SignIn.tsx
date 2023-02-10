@@ -9,7 +9,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth } from '../Firebase';
+import { auth } from '../firebase/Firebase';
 import { ISignUpForm } from '../types';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
