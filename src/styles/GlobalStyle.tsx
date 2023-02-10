@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-
 const GlobalStyle = createGlobalStyle`
 
   html, body, div, span, applet, object, iframe,
@@ -53,7 +52,6 @@ table {
   box-sizing: border-box;
 }
 body{
-  
   font-family: 'Source Sans Pro', sans-serif;
 }
 a{
