@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ISignUpForm } from '../../types';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../../Firebase';
+import { auth } from '../../firebase/Firebase';
 
 const FindPW = () => {
   const [success, setSuccess] = useState(false);

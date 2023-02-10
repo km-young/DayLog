@@ -13,7 +13,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth } from '../Firebase';
+import { auth } from '../firebase/Firebase';
 
 const SignUp = () => {
   const navigate = useNavigate();
