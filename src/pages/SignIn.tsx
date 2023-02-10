@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { AiFillCloseCircle, AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
