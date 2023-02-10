@@ -1,8 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { AiFillCloseCircle, AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
-import { LoginForm } from '../types';
 import { useNavigate } from 'react-router';
 const SignUp = () => {
   const navigate = useNavigate();
@@ -69,7 +68,9 @@ const SignUp = () => {
 
 export default SignUp;
 
-const FormTag = styled.form``;
+const FormTag = styled.form`
+  width: 100%;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -107,7 +108,7 @@ const ItemContainer = styled.div`
 `;
 
 const InputBox = styled.input`
-  width: 21.5rem;
+  width: 100%;
   height: 2.4rem;
   padding: 0 3rem 0 1rem;
   font-size: 1rem;
@@ -146,7 +147,6 @@ const SocialLoginButtonContainer = styled.div`
   gap: 2rem;
   margin-top: 2rem;
 `;
-
 
 const MoveSignInButton = styled.button`
   border: none;

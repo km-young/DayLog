@@ -1,11 +1,10 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import EditPage from '../pages/EditPage'
-import Home from '../pages/Home'
-import Landing from '../pages/Landing'
-import MyPage from '../pages/MyPage'
-import SignIn from '../pages/SignIn'
-import SignUp from '../pages/SignUp'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import EditPage from '../pages/EditPage';
+import Home from '../pages/Home';
+import Landing from '../pages/Landing';
+import MyPage from '../pages/MyPage';
+import SignIn from '../pages/SignIn';
+import SignUp from '../pages/SignUp';
 
 const Router = () => {
   return (
@@ -20,6 +19,6 @@ const Router = () => {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
-export default Router
+export default Router;
